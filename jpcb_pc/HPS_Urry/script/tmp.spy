@@ -1,0 +1,17 @@
+#!/home/xqding/apps/miniconda3/envs/jop/bin/python
+
+## 
+#SBATCH --job-name=!PROTEIN!
+#SBATCH --time=00:10:00
+#SBATCH --partition=brooks
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --gres=gpu:1
+#SBATCH --array=0-1
+#SBATCH --mem-per-cpu=1000
+#SBATCH --output=./slurm_output/slurm-%A_%a.out
+
+import os
+print(os.environ['SLURM_ARRAY_TASK_ID'])
+
+
